@@ -1,0 +1,16 @@
+---
+- name: install app
+  homebrew_cask: name=flux
+  tags: [flux, install]
+
+- name: set custom sunset colour
+  osx_defaults: domain=org.herf.Flux key=nightColorTemp type=float value="{{ flux_night_colour }}"
+  tags: [flux, config]
+
+- name: set custom bedtime colour
+  osx_defaults: domain=org.herf.Flux key=lateColorTemp type=float value="{{ flux_late_colour }}"
+  tags: [flux, config]
+
+- name: set custom wake time
+  osx_defaults: domain=org.herf.Flux key=wakeTime type=float value="{{ flux_wake_time }}"
+  tags: [flux, config]
